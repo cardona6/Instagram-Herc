@@ -6,8 +6,9 @@ const { randomNumber } = require('../helpers/lins');
 const ctrl = {};
 
 
-ctrl.index = (req, res) => {
-
+ctrl.index = async (req, res) => {
+  const image = await Image.findOne({filename: {$regex: req.params.image_id}});
+  res.render('image',{image});
 };
 
 ctrl.create =  (req, res, next) => {
@@ -30,7 +31,7 @@ ctrl.create =  (req, res, next) => {
           description: req.body.description
         });
         const imageSaved = await newImg.save();
-        res.send('works');
+        res.redirect('/images/' + imgUrl );
       } else {
         await fs.unlink(imageTempPath);
         res.status(500).json({ error: 'Only Images are allowed' });
@@ -46,6 +47,7 @@ ctrl.like = (req, res) => {
 };
 
 ctrl.comment = (req, res) => {
+
 
 };
 

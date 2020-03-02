@@ -8,6 +8,7 @@
 
   <div class="card-body">
     <form action="/images" method="POST" enctype="multipart/form-data">
+     
       <div class="form-group">
         <div class="input-group">
           <div class="custom-file">
@@ -39,8 +40,8 @@
     <div class="row">
        {{#each images}}
       <div class="col-md-4">
-        <a href="">
-          <img src="/public/upload/{{filename}}" alt="" class="w-100 h-100 img-thumbnail">
+        <a href={{ uniqueIdUrl }}>
+          <img src={{ imageUrl }} alt="" class="w-100 h-100 img-thumbnail">
          </a>
       </div>
       {{/each}}

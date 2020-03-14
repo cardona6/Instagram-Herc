@@ -8,7 +8,10 @@ const ctrl = {};
 
 ctrl.index = async (req, res) => {
   const image = await Image.findOne({filename: {$regex: req.params.image_id}});
-  res.render('image',{image});
+  image.imageUrl = "/public/upload/" + image.filename
+  
+  console.log(image);
+  res.render('image', {image});
 };
 
 ctrl.create =  (req, res, next) => {
@@ -47,8 +50,8 @@ ctrl.like = (req, res) => {
 };
 
 ctrl.comment = (req, res) => {
-
-
+// console.log(req.body);
+res.send('comment');
 };
 
 ctrl.remove = (req, res) => {

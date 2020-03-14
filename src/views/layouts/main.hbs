@@ -14,17 +14,13 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="/">
-          <img src="#" alt="imstHerv">
-        </a>
-      </div>
-    </nav>
-
+{{> navigation }}
+   
     <div class="container p-4">
       <div class="row">
         <div class="col-md-8">
+          {{> messages }}
+          {{> errors }}
           {{{ body  }}} 
         </div>
          <div class="col-md-4">
@@ -36,19 +32,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-dark text-white">
-      <div class="container p-2">
-        <div class="row">
-          <div class="mx-auto text-center">
-            <p>imstagram-Hervin.io | &copy; Copyright 2020, All rights reserved</p>
-            <p>
-              <i class="fab fa-twitter-square fa-2x"></i>
-              <i class="fab fa-facebook-square fa-2x"></i>
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+   {{> footer }}
 
     <!-- SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

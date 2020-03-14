@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const express = require('express');
 const errorHandler = require('errorhandler');
 const exphbs = require('express-handlebars');
+const flash = require('connect-flash');
 const multer = require('multer');
 
 const routes = require('../routes/index');
@@ -26,9 +27,11 @@ module.exports = app => {
     app.use(morgan('dev'));
     app.use(express.urlencoded({extended: false}));
     app.use(express.json());
+    app.use(flash());
   
     // Routes
     routes(app);
+    app.use(require('../routes/users'));
 
     // Static files
     app.use('/public', express.static(path.join(__dirname, '../public')));

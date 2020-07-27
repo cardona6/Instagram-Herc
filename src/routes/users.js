@@ -7,6 +7,10 @@ router.get('/navi', (req, res) => {
     res.render('navigation');
 });
 
+router.get('/about', (req, res) => {
+    res.render('about');
+});
+
 router.get('/users/signin', (req, res) => {
     res.render('users/signin');
 });
